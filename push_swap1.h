@@ -6,7 +6,7 @@
 /*   By: mben-abd <mben-abd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 19:08:33 by mben-abd          #+#    #+#             */
-/*   Updated: 2023/12/01 21:43:08 by mben-abd         ###   ########.fr       */
+/*   Updated: 2023/12/11 10:42:22 by mben-abd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,12 @@ t_stack_n				*cheapest_nbr(t_stack_n *stack);
 void					mid_index(t_stack_n *stack);
 void					plan_to_push(t_stack_n **stack, t_stack_n *top_n,
 							char a_b);
-void					aim_for_a(t_stack_n *a, t_stack_n *b);
+void					aim_for_b(t_stack_n *a, t_stack_n *b);
 void					cost_a(t_stack_n *a, t_stack_n *b);
+void					aim_for_a(t_stack_n *a, t_stack_n *b);
+void					turk(t_stack_n **a, t_stack_n **b);
+void					turk_a_b(t_stack_n **a, t_stack_n **b);
+void					rev_rotate_a_and_b(t_stack_n **a, t_stack_n **b, t_stack_n *cheap);
 //
 // les operations -->
 //

@@ -6,7 +6,7 @@
 /*   By: mben-abd <mben-abd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 16:58:46 by mben-abd          #+#    #+#             */
-/*   Updated: 2023/12/01 21:40:48 by mben-abd         ###   ########.fr       */
+/*   Updated: 2023/12/11 11:01:36 by mben-abd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	mid_index(t_stack_n *stack)
 	}
 }
 
-void	aim_for_a(t_stack_n *a, t_stack_n *b)
+void	aim_for_b(t_stack_n *a, t_stack_n *b)
 {
 	t_stack_n	*pointeur_b;
 	t_stack_n	*node_target;
@@ -63,12 +63,11 @@ void	aim_for_a(t_stack_n *a, t_stack_n *b)
 void	cost_a(t_stack_n *a, t_stack_n *b)
 {
 	int	size_a;
-	int size_b;
+	int	size_b;
 
 	size_a = ft_stack_size(a);
 	size_b = ft_stack_size(b);
-	
-	while(a)
+	while (a)
 	{
 		a->cmd_cost = a->index;
 		if (!(a->middle_up))
@@ -81,6 +80,33 @@ void	cost_a(t_stack_n *a, t_stack_n *b)
 	}
 }
 
+void	set_cheap(t_stack_n *stack)
+{
+	long		cheap_value;
+	t_stack_n	*cheapest_n;
 
+	if (!stack)
+		return ;
+	// assigne en long pour rentrer obligatoirement dans le if
+	cheap_value = LONG_MAX;
+	while (stack)
+	{
+		if (stack->cmd_cost < cheap_value)
+		{
+			// rentre dans le if et met a jour le noeud jusqu'a qu'il soit egale a cmd_cost
+			cheap_value = stack->cmd_cost;
+			cheapest_n = stack;
+		}
+		stack = stack->next;
+	}
+	cheapest_n->cheap = true;
+}
 
-
+void	init_a_to_b(t_stack_n *a, t_stack_n *b)
+{
+	mid_index(a);
+	mid_index(b);
+	aim_for_a(a, b);
+	cost_a(a, b);
+	set_cheap(a);
+}
