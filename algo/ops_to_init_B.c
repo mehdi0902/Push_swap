@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ops_to_init_A.c                                    :+:      :+:    :+:   */
+/*   ops_to_init_B.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mben-abd <mben-abd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 16:58:46 by mben-abd          #+#    #+#             */
-/*   Updated: 2023/12/11 11:01:36 by mben-abd         ###   ########.fr       */
+/*   Updated: 2023/12/15 21:44:39 by mben-abd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,13 +87,11 @@ void	set_cheap(t_stack_n *stack)
 
 	if (!stack)
 		return ;
-	// assigne en long pour rentrer obligatoirement dans le if
 	cheap_value = LONG_MAX;
 	while (stack)
 	{
 		if (stack->cmd_cost < cheap_value)
 		{
-			// rentre dans le if et met a jour le noeud jusqu'a qu'il soit egale a cmd_cost
 			cheap_value = stack->cmd_cost;
 			cheapest_n = stack;
 		}

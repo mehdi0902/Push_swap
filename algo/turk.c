@@ -6,7 +6,7 @@
 /*   By: mben-abd <mben-abd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 13:53:07 by mben-abd          #+#    #+#             */
-/*   Updated: 2023/12/11 11:01:14 by mben-abd         ###   ########.fr       */
+/*   Updated: 2023/12/15 21:41:09 by mben-abd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,27 @@ void	turk(t_stack_n **a, t_stack_n **b)
 	int	len_stack;
 
 	len_stack = ft_stack_size(*a);
-	if (len_stack > 3 && !stack_sorted(*a))
+	if (len_stack-- > 3 && !stack_sorted(*a))
 	{
-		pa_pb(a, b, 0);
-		len_stack--;
+		pa_pb(b, a, 0);
 	}
-	if (len_stack > 3 && !stack_sorted(*a))
+	if (len_stack-- > 3 && !stack_sorted(*a))
 	{
-		pa_pb(a, b, 0);
-		len_stack--;
+		pa_pb(b, a, 0);
 	}
+	while (len_stack-- > 3 && !stack_sorted(*a))
+	{
+		init_a_to_b(a, b);
+		mv_a_to_b(a, b);
+	}
+	if_three(a);
+	while (*b)
+	{
+		init_b_to_a(a, b);
+		mv_b_to_a(a, b);
+	}
+	mid_index(*a);
+	min_on_top(a);
 }
 
 void	rotate_a_and_b(t_stack_n **a, t_stack_n **b, t_stack_n *cheap)
@@ -55,4 +66,3 @@ void	min_on_top(t_stack_n **a)
 			rra_rrb(a, 0);
 	}
 }
-// void	turk_a_b(t_stack_n **a, t_stack_n **b)

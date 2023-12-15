@@ -6,7 +6,7 @@
 /*   By: mben-abd <mben-abd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 19:08:33 by mben-abd          #+#    #+#             */
-/*   Updated: 2023/12/11 10:42:22 by mben-abd         ###   ########.fr       */
+/*   Updated: 2023/12/15 21:41:23 by mben-abd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <limits.h>
 # include <stdbool.h>
 //
-// lsa structure qui prend 
+// lsa structure qui prend
 //
 typedef struct s_stack_n
 {
@@ -48,8 +48,14 @@ void					aim_for_b(t_stack_n *a, t_stack_n *b);
 void					cost_a(t_stack_n *a, t_stack_n *b);
 void					aim_for_a(t_stack_n *a, t_stack_n *b);
 void					turk(t_stack_n **a, t_stack_n **b);
-void					turk_a_b(t_stack_n **a, t_stack_n **b);
-void					rev_rotate_a_and_b(t_stack_n **a, t_stack_n **b, t_stack_n *cheap);
+void					rev_rotate_a_and_b(t_stack_n **a, t_stack_n **b,
+							t_stack_n *cheap);
+void					set_cheap(t_stack_n *stack);
+void					init_a_to_b(t_stack_n *a, t_stack_n *b);
+void					init_b_to_a(t_stack_n *a, t_stack_n *b);
+void					mv_b_to_a(t_stack_n **a, t_stack_n **b);
+void					mv_a_to_b(t_stack_n **a, t_stack_n **b);
+
 //
 // les operations -->
 //
