@@ -6,7 +6,7 @@
 /*   By: mben-abd <mben-abd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 02:37:05 by mben-abd          #+#    #+#             */
-/*   Updated: 2023/11/28 18:24:24 by mben-abd         ###   ########.fr       */
+/*   Updated: 2023/12/16 04:43:06 by mben-abd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,14 +66,14 @@ void	ra_rb(t_stack_n **a, int i)
 	last->next = tmp;
 	tmp->next = NULL;
 	if (i == 0)
-		ft_putstr_fd("ra", 1);
+		ft_putstr_fd("ra\n", 1);
 	else if (i == 1)
-		ft_putstr_fd("rb", 1);
+		ft_putstr_fd("rb\n", 1);
 }
 
 void	rr(t_stack_n **a, t_stack_n **b)
 {
-	ra(a, 3);
-	ra(b, 3);
-	ft_putstr_fd("rr", 1);
+	ra_rb(a, 3);
+	ra_rb(b, 3);
+	ft_putstr_fd("rr\n", 1);
 }

@@ -6,7 +6,7 @@
 /*   By: mben-abd <mben-abd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 03:20:04 by mben-abd          #+#    #+#             */
-/*   Updated: 2023/12/15 21:41:43 by mben-abd         ###   ########.fr       */
+/*   Updated: 2023/12/16 02:46:23 by mben-abd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,15 @@ void	if_three(t_stack_n **s)
 		rra_rrb(s, 0);
 	}
 	else if (a > b && a > c && c > b)
-		ra(s, 0);
-	else if (a > b && b > c && c > a)
+		ra_rb(s, 0);
+	else if (a < b && b > c && c > a)
 	{
 		sa_sb(s, 0);
-		ra(s, 0);
+		ra_rb(s, 0);
 	}
 	else if (a < b && b > c && a > c)
 	{
 		rra_rrb(s, 0);
 	}
 }
+

@@ -6,17 +6,41 @@
 /*   By: mben-abd <mben-abd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 22:43:19 by mben-abd          #+#    #+#             */
-/*   Updated: 2023/11/29 14:46:31 by mben-abd         ###   ########.fr       */
+/*   Updated: 2023/12/16 05:14:27 by mben-abd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap1.h"
 
-void	append(t_stack_n **top, int newnbr)
+void	append(t_stack_n **stack, int n) 
+{
+	t_stack_n	*node; 
+	t_stack_n	*last_node; 
+
+	if (!stack)
+		return ;
+	node = malloc(sizeof(t_stack_n)); 
+	if (!node)
+		return ;
+	node->next = NULL; 
+	node->nbr = n; 
+	if (!(*stack)) 
+	{
+		*stack = node; 
+		node->prev = NULL; 
+	}
+	else
+	{
+		last_node = find_last(*stack); 
+		last_node->next = node; 
+		node->prev = last_node; 
+	}
+}
+/*void	append(t_stack_n **top, int newnbr)
 {
 	t_stack_n	*newnode;
 	t_stack_n	*last;
-
+	
 	newnode = malloc(sizeof(t_stack_n));
 	if (!newnode)
 		return ;
@@ -34,7 +58,7 @@ void	append(t_stack_n **top, int newnbr)
 		last->next = newnode;
 		newnode->prev = last;
 	}
-}
+}*/
 
 t_stack_n	*cheapest_nbr(t_stack_n *stack)
 {
@@ -67,5 +91,19 @@ void	plan_to_push(t_stack_n **stack, t_stack_n *top_n, char a_b)
 			else
 				rra_rrb(stack, 1);
 		}
+	}
+}
+
+void	init_stack_a(t_stack_n **a, char **av)
+{
+	long	n;
+	int		i;
+
+	i = 0;
+	while (av[i])
+	{
+		n = ft_atoi(av[i]);
+		append(a, (int)n);
+		i++;
 	}
 }

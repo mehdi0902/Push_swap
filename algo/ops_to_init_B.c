@@ -6,7 +6,7 @@
 /*   By: mben-abd <mben-abd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 16:58:46 by mben-abd          #+#    #+#             */
-/*   Updated: 2023/12/15 21:44:39 by mben-abd         ###   ########.fr       */
+/*   Updated: 2023/12/16 04:32:15 by mben-abd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,18 +45,19 @@ void	aim_for_b(t_stack_n *a, t_stack_n *b)
 		pointeur_b = b;
 		while (pointeur_b)
 		{
-			if (pointeur_b->nbr > a->nbr && pointeur_b->nbr > best_comp)
+			if (pointeur_b->nbr < a->nbr && pointeur_b->nbr > best_comp)
 			{
 				best_comp = pointeur_b->nbr;
 				node_target = pointeur_b;
 			}
 			pointeur_b = pointeur_b->next;
-			if (best_comp == LONG_MIN)
-				a->target_n = find_max(b);
-			else
-				a->target_n = node_target;
-			a = a->next;
 		}
+		if (best_comp == LONG_MIN)
+			a->target_n = find_max(b);
+		else
+			a->target_n = node_target;
+		a = a->next;
+		
 	}
 }
 
@@ -104,7 +105,7 @@ void	init_a_to_b(t_stack_n *a, t_stack_n *b)
 {
 	mid_index(a);
 	mid_index(b);
-	aim_for_a(a, b);
+	aim_for_b(a, b);
 	cost_a(a, b);
 	set_cheap(a);
 }

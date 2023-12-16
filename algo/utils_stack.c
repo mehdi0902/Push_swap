@@ -6,7 +6,7 @@
 /*   By: mben-abd <mben-abd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 23:33:36 by mben-abd          #+#    #+#             */
-/*   Updated: 2023/11/28 18:47:48 by mben-abd         ###   ########.fr       */
+/*   Updated: 2023/12/16 03:07:10 by mben-abd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,11 @@ bool	stack_sorted(t_stack_n *stack)
 int	ft_stack_size(t_stack_n *stack)
 {
 	int	i;
-
+	
+	if (!stack)
+		return (0);
 	i = 0;
-	while (stack != NULL)
+	while (stack)
 	{
 		stack = stack->next;
 		i++;

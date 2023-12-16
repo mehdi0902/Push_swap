@@ -6,7 +6,7 @@
 /*   By: mben-abd <mben-abd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 19:08:33 by mben-abd          #+#    #+#             */
-/*   Updated: 2023/12/15 21:41:23 by mben-abd         ###   ########.fr       */
+/*   Updated: 2023/12/16 03:17:38 by mben-abd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef struct s_stack_n
 // ALGO -->
 //
 t_stack_n				*find_last(t_stack_n *stack);
-void					append(t_stack_n **top, int newnbr);
+void					append(t_stack_n **stack, int n);
 int						ft_stack_size(t_stack_n *stack);
 bool					stack_sorted(t_stack_n *stack);
 t_stack_n				*find_min(t_stack_n *stack);
@@ -50,12 +50,15 @@ void					aim_for_a(t_stack_n *a, t_stack_n *b);
 void					turk(t_stack_n **a, t_stack_n **b);
 void					rev_rotate_a_and_b(t_stack_n **a, t_stack_n **b,
 							t_stack_n *cheap);
+void					rotate_a_and_b(t_stack_n **a, t_stack_n **b,
+							t_stack_n *cheap);
 void					set_cheap(t_stack_n *stack);
 void					init_a_to_b(t_stack_n *a, t_stack_n *b);
 void					init_b_to_a(t_stack_n *a, t_stack_n *b);
 void					mv_b_to_a(t_stack_n **a, t_stack_n **b);
 void					mv_a_to_b(t_stack_n **a, t_stack_n **b);
-
+void					min_on_top(t_stack_n **a);
+void					init_stack_a(t_stack_n **a, char **av);
 //
 // les operations -->
 //
