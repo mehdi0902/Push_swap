@@ -6,7 +6,7 @@
 /*   By: mben-abd <mben-abd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 22:43:19 by mben-abd          #+#    #+#             */
-/*   Updated: 2023/12/16 05:14:27 by mben-abd         ###   ########.fr       */
+/*   Updated: 2023/12/20 10:20:27 by mben-abd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,31 @@ t_stack_n	*cheapest_nbr(t_stack_n *stack)
 	return (NULL);
 }
 
-void	plan_to_push(t_stack_n **stack, t_stack_n *top_n, char a_b)
+void	plan_to_push(t_stack_n **stack,
+						t_stack_n *top_node,
+						char stack_name) //Define a function that moves the required node to the top of the stack
+{
+	//ft_putstr_fd("oue588", 1);
+	while (*stack != top_node) //Check if the required node is not already the first node
+	{
+		//("oue588", 1);
+		if (stack_name == 'a') //If not, and it is stack `a`, execute the following
+		{
+			if (top_node->middle_up)
+				ra(stack, false);
+			else
+				rra(stack, false);
+		}
+		else if (stack_name == 'b') //If not, and it is stack `b`, execute the following
+		{
+			if (top_node->middle_up)
+				rb(stack, false);
+			else
+				rrb(stack, false);
+		}	
+	}
+}
+/*void	plan_to_push(t_stack_n **stack, t_stack_n *top_n, char a_b)
 {
 	while (*stack != top_n)
 	{
@@ -91,8 +115,10 @@ void	plan_to_push(t_stack_n **stack, t_stack_n *top_n, char a_b)
 			else
 				rra_rrb(stack, 1);
 		}
+		*stack = (*stack)->next;
 	}
-}
+	 
+}*/
 
 void	init_stack_a(t_stack_n **a, char **av)
 {

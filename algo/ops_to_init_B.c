@@ -6,20 +6,22 @@
 /*   By: mben-abd <mben-abd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 16:58:46 by mben-abd          #+#    #+#             */
-/*   Updated: 2023/12/16 04:32:15 by mben-abd         ###   ########.fr       */
+/*   Updated: 2023/12/20 13:37:23 by mben-abd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap1.h"
 
 void	mid_index(t_stack_n *stack)
-{
+{	
+
 	int	i;
 	int	mid;
 
 	i = 0;
 	if (!stack)
 		return ;
+
 	mid = ft_stack_size(stack) / 2;
 	while (stack)
 	{
@@ -30,7 +32,8 @@ void	mid_index(t_stack_n *stack)
 			stack->middle_up = false;
 		stack = stack->next;
 		++i;
-	}
+	}		
+
 }
 
 void	aim_for_b(t_stack_n *a, t_stack_n *b)
@@ -63,22 +66,47 @@ void	aim_for_b(t_stack_n *a, t_stack_n *b)
 
 void	cost_a(t_stack_n *a, t_stack_n *b)
 {
-	int	size_a;
+	/*int	size_a;
 	int	size_b;
 
 	size_a = ft_stack_size(a);
 	size_b = ft_stack_size(b);
+	//ft_putstr_fd("oue8", 1);
 	while (a)
 	{
 		a->cmd_cost = a->index;
 		if (!(a->middle_up))
 			a->cmd_cost = size_a - (a->index);
+		//ft_putstr_fd("oue8", 1);
 		if (a->target_n->middle_up)
 			a->cmd_cost += a->target_n->index;
 		else
 			a->cmd_cost += size_b - (a->target_n->index);
+		//ft_putstr_fd("oue8", 1);
+		
 		a = a->next;
-	}
+	}*/
+    int size_a = ft_stack_size(a);
+    int size_b = ft_stack_size(b);
+
+    while (a != NULL)
+    {
+        a->cmd_cost = a->index;
+        if (!(a->middle_up))
+            a->cmd_cost = size_a - (a->index);
+
+        if (a->target_n != NULL)
+        {
+            if (a->target_n->middle_up)
+                a->cmd_cost += a->target_n->index;
+            else
+                a->cmd_cost += size_b - (a->target_n->index);
+        }
+
+        a = a->next;
+    }
+
+
 }
 
 void	set_cheap(t_stack_n *stack)
@@ -103,6 +131,7 @@ void	set_cheap(t_stack_n *stack)
 
 void	init_a_to_b(t_stack_n *a, t_stack_n *b)
 {
+
 	mid_index(a);
 	mid_index(b);
 	aim_for_b(a, b);
