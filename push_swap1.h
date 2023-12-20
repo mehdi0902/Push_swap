@@ -6,7 +6,7 @@
 /*   By: mben-abd <mben-abd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 19:08:33 by mben-abd          #+#    #+#             */
-/*   Updated: 2023/12/20 08:39:02 by mben-abd         ###   ########.fr       */
+/*   Updated: 2023/12/20 14:31:54 by mben-abd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void					init_stack_a(t_stack_n **a, char **av);
 //
 // les operations -->
 //
-//void					rr(t_stack_n **a, t_stack_n **b);
+void					rr(t_stack_n **a, t_stack_n **b);
 void					ra_rb(t_stack_n **a, int i);
 //void					pa_pb(t_stack_n **a, t_stack_n **b, int i);
 void					pb(t_stack_n **a, t_stack_n **b, int i);
@@ -70,16 +70,16 @@ void					pa(t_stack_n **a, t_stack_n **b, int i);
 void					ss(t_stack_n **a, t_stack_n **b);
 void					sa_sb(t_stack_n **a, int i);
 void					rra_rrb(t_stack_n **a, int i);
-//void					rrr(t_stack_n **a, t_stack_n **b);
+void					rrr(t_stack_n **a, t_stack_n **b);
 void					stake(t_stack_n **a);
 void					ft_putstr_fd(char *s, int fd);
 void					if_three(t_stack_n **a);
-void	rr(t_stack_n **a, t_stack_n **b, bool print);
-void	rb(t_stack_n **b, bool print);
-void	ra(t_stack_n **a, bool print);
-void	rrr(t_stack_n **a, t_stack_n **b, bool print);
-void	rrb(t_stack_n **b, bool print);
-void	rra(t_stack_n **a, bool print);
+//void	rr(t_stack_n **a, t_stack_n **b, bool print);
+//void	rb(t_stack_n **b, bool print);
+//void	ra(t_stack_n **a, bool print);
+//void	rrr(t_stack_n **a, t_stack_n **b, bool print);
+//void	rrb(t_stack_n **b, bool print);
+//void	rra(t_stack_n **a, bool print);
 
 
 

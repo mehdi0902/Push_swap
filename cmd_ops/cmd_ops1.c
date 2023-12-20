@@ -6,7 +6,7 @@
 /*   By: mben-abd <mben-abd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 02:57:57 by mben-abd          #+#    #+#             */
-/*   Updated: 2023/12/20 08:43:03 by mben-abd         ###   ########.fr       */
+/*   Updated: 2023/12/20 14:31:59 by mben-abd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@ void	rra_rrb(t_stack_n **a, int i)
 	}
 }
 
-/*void	rrr(t_stack_n **a, t_stack_n **b)
+void	rrr(t_stack_n **a, t_stack_n **b)
 {
 	rra_rrb(a, 3);
 	rra_rrb(b, 3);
 	ft_putstr_fd("rrr\n", 1);
-}*/
+}
 
 void	stake(t_stack_n **a)
 {
@@ -57,7 +57,7 @@ void	stake(t_stack_n **a)
 	}
 }
 
-static void	rotate(t_stack_n **stack) //Define a function that rotates the stack's top node to the bottom of the stack
+/*static void	rotate(t_stack_n **stack) //Define a function that rotates the stack's top node to the bottom of the stack
 {
 	t_stack_n	*last_node; //To store a pointer to the last node of a stack
 
@@ -127,4 +127,4 @@ void	rrr(t_stack_n **a, t_stack_n **b, bool print) //Stimultaneously rotate both
 	rev_rotate(b);
 	if (!print)
 		ft_putstr_fd("rrr\n", 1);
-}
+}*/

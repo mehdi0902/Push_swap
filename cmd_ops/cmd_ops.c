@@ -6,7 +6,7 @@
 /*   By: mben-abd <mben-abd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 02:37:05 by mben-abd          #+#    #+#             */
-/*   Updated: 2023/12/20 08:33:47 by mben-abd         ###   ########.fr       */
+/*   Updated: 2023/12/20 14:31:56 by mben-abd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,9 +92,9 @@ void	ra_rb(t_stack_n **a, int i)
 		ft_putstr_fd("rb\n", 1);
 }
 
-/*void	rr(t_stack_n **a, t_stack_n **b)
+void	rr(t_stack_n **a, t_stack_n **b)
 {
 	ra_rb(a, 3);
 	ra_rb(b, 3);
 	ft_putstr_fd("rr\n", 1);
-}*/
+}

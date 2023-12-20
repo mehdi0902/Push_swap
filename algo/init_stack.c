@@ -6,7 +6,7 @@
 /*   By: mben-abd <mben-abd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 22:43:19 by mben-abd          #+#    #+#             */
-/*   Updated: 2023/12/20 10:20:27 by mben-abd         ###   ########.fr       */
+/*   Updated: 2023/12/20 14:30:23 by mben-abd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,25 +75,24 @@ t_stack_n	*cheapest_nbr(t_stack_n *stack)
 
 void	plan_to_push(t_stack_n **stack,
 						t_stack_n *top_node,
-						char stack_name) //Define a function that moves the required node to the top of the stack
+						char stack_name) 
 {
-	//ft_putstr_fd("oue588", 1);
-	while (*stack != top_node) //Check if the required node is not already the first node
+	while (*stack != top_node) 
 	{
 		//("oue588", 1);
-		if (stack_name == 'a') //If not, and it is stack `a`, execute the following
+		if (stack_name == 'a')
 		{
 			if (top_node->middle_up)
-				ra(stack, false);
+				ra_rb(stack, 0);
 			else
-				rra(stack, false);
+				rra_rrb(stack, 0);
 		}
-		else if (stack_name == 'b') //If not, and it is stack `b`, execute the following
+		else if (stack_name == 'b') 
 		{
 			if (top_node->middle_up)
-				rb(stack, false);
+				ra_rb(stack, 1);
 			else
-				rrb(stack, false);
+				rra_rrb(stack, 1);
 		}	
 	}
 }

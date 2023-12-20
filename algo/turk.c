@@ -6,7 +6,7 @@
 /*   By: mben-abd <mben-abd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 13:53:07 by mben-abd          #+#    #+#             */
-/*   Updated: 2023/12/20 13:38:41 by mben-abd         ###   ########.fr       */
+/*   Updated: 2023/12/20 14:27:24 by mben-abd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	rotate_a_and_b(t_stack_n **a, t_stack_n **b, t_stack_n *cheap)
 {
 	//ft_putstr_fd("oue588", 1);
 	while (*b != cheap->target_n && *a != cheap)
-		rr(a, b, false);
+		rr(a, b);
 	//ft_putstr_fd("oue588", 1);
 	mid_index(*a);
 	mid_index(*b);
@@ -96,7 +96,7 @@ void	rev_rotate_a_and_b(t_stack_n **a, t_stack_n **b, t_stack_n *cheap)
 {
 	//ft_putstr_fd("ou1", 1);
 	while (*b != cheap->target_n && *a != cheap)
-		rrr(a, b, false);
+		rrr(a, b);
 	//ft_putstr_fd("ou2", 1);
 	mid_index(*a);
 	mid_index(*b);
@@ -109,8 +109,8 @@ void	min_on_top(t_stack_n **a)
 	{
 		
 		if (find_min(*a)->middle_up)
-			ra(a, false);
+			ra_rb(a, 0);
 		else
-			rra(a, false);
+			rra_rrb(a, 0);
 	}
 }
