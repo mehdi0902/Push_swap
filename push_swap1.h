@@ -6,7 +6,7 @@
 /*   By: mben-abd <mben-abd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 19:08:33 by mben-abd          #+#    #+#             */
-/*   Updated: 2023/12/20 14:31:54 by mben-abd         ###   ########.fr       */
+/*   Updated: 2023/12/26 23:49:46 by mben-abd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,16 @@ void					mv_b_to_a(t_stack_n **a, t_stack_n **b);
 void					mv_a_to_b(t_stack_n **a, t_stack_n **b);
 void					min_on_top(t_stack_n **a);
 void					init_stack_a(t_stack_n **a, char **av);
+int						if_duplicate(t_stack_n *a, int n);
+void					liberez_tout_mes_copains(t_stack_n **a);
+void					free_sa_la(t_stack_n **stack);
+int						synthol(char *str_n);
 //
 // les operations -->
 //
 void					rr(t_stack_n **a, t_stack_n **b);
 void					ra_rb(t_stack_n **a, int i);
-//void					pa_pb(t_stack_n **a, t_stack_n **b, int i);
+// void					pa_pb(t_stack_n **a, t_stack_n **b, int i);
 void					pb(t_stack_n **a, t_stack_n **b, int i);
 void					pa(t_stack_n **a, t_stack_n **b, int i);
 void					ss(t_stack_n **a, t_stack_n **b);
@@ -74,17 +78,11 @@ void					rrr(t_stack_n **a, t_stack_n **b);
 void					stake(t_stack_n **a);
 void					ft_putstr_fd(char *s, int fd);
 void					if_three(t_stack_n **a);
-//void	rr(t_stack_n **a, t_stack_n **b, bool print);
-//void	rb(t_stack_n **b, bool print);
-//void	ra(t_stack_n **a, bool print);
-//void	rrr(t_stack_n **a, t_stack_n **b, bool print);
-//void	rrb(t_stack_n **b, bool print);
-//void	rra(t_stack_n **a, bool print);
-
-
-
-
-
-
+// void	rr(t_stack_n **a, t_stack_n **b, bool print);
+// void	rb(t_stack_n **b, bool print);
+// void	ra(t_stack_n **a, bool print);
+// void	rrr(t_stack_n **a, t_stack_n **b, bool print);
+// void	rrb(t_stack_n **b, bool print);
+// void	rra(t_stack_n **a, bool print);
 
 #endif

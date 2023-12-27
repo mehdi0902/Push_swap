@@ -6,41 +6,41 @@
 /*   By: mben-abd <mben-abd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 22:43:19 by mben-abd          #+#    #+#             */
-/*   Updated: 2023/12/20 14:30:23 by mben-abd         ###   ########.fr       */
+/*   Updated: 2023/12/27 00:01:30 by mben-abd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap1.h"
 
-void	append(t_stack_n **stack, int n) 
+void	append(t_stack_n **stack, int n)
 {
-	t_stack_n	*node; 
-	t_stack_n	*last_node; 
+	t_stack_n	*node;
+	t_stack_n	*last_node;
 
 	if (!stack)
 		return ;
-	node = malloc(sizeof(t_stack_n)); 
+	node = malloc(sizeof(t_stack_n));
 	if (!node)
 		return ;
-	node->next = NULL; 
-	node->nbr = n; 
-	if (!(*stack)) 
+	node->next = NULL;
+	node->nbr = n;
+	if (!(*stack))
 	{
-		*stack = node; 
-		node->prev = NULL; 
+		*stack = node;
+		node->prev = NULL;
 	}
 	else
 	{
-		last_node = find_last(*stack); 
-		last_node->next = node; 
-		node->prev = last_node; 
+		last_node = find_last(*stack);
+		last_node->next = node;
+		node->prev = last_node;
 	}
 }
 /*void	append(t_stack_n **top, int newnbr)
 {
 	t_stack_n	*newnode;
 	t_stack_n	*last;
-	
+
 	newnode = malloc(sizeof(t_stack_n));
 	if (!newnode)
 		return ;
@@ -73,13 +73,10 @@ t_stack_n	*cheapest_nbr(t_stack_n *stack)
 	return (NULL);
 }
 
-void	plan_to_push(t_stack_n **stack,
-						t_stack_n *top_node,
-						char stack_name) 
+void	plan_to_push(t_stack_n **stack, t_stack_n *top_node, char stack_name)
 {
-	while (*stack != top_node) 
+	while (*stack != top_node)
 	{
-		//("oue588", 1);
 		if (stack_name == 'a')
 		{
 			if (top_node->middle_up)
@@ -87,13 +84,13 @@ void	plan_to_push(t_stack_n **stack,
 			else
 				rra_rrb(stack, 0);
 		}
-		else if (stack_name == 'b') 
+		else if (stack_name == 'b')
 		{
 			if (top_node->middle_up)
 				ra_rb(stack, 1);
 			else
 				rra_rrb(stack, 1);
-		}	
+		}
 	}
 }
 /*void	plan_to_push(t_stack_n **stack, t_stack_n *top_n, char a_b)
@@ -116,7 +113,7 @@ void	plan_to_push(t_stack_n **stack,
 		}
 		*stack = (*stack)->next;
 	}
-	 
+
 }*/
 
 void	init_stack_a(t_stack_n **a, char **av)
@@ -127,7 +124,13 @@ void	init_stack_a(t_stack_n **a, char **av)
 	i = 0;
 	while (av[i])
 	{
+		if (synthol(av[i]))
+			liberez_tout_mes_copains(a);
 		n = ft_atoi(av[i]);
+		if (if_duplicate(*a, (int)n))
+			liberez_tout_mes_copains(a);
+		if (n > INT_MAX || n < INT_MIN)
+			liberez_tout_mes_copains(a);
 		append(a, (int)n);
 		i++;
 	}

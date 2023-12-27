@@ -6,7 +6,7 @@
 /*   By: mben-abd <mben-abd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 23:33:36 by mben-abd          #+#    #+#             */
-/*   Updated: 2023/12/16 22:41:07 by mben-abd         ###   ########.fr       */
+/*   Updated: 2023/12/26 23:54:49 by mben-abd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,20 @@ t_stack_n	*find_last(t_stack_n *stack)
 	return (stack);
 }
 
-bool stack_sorted(t_stack_n *stack)
+bool	stack_sorted(t_stack_n *stack)
 {
-    if (!stack)
-        return true;
+	t_stack_n	*current;
 
-    t_stack_n *current = stack;
-    while (current)
-    {
-        if (current->nbr > current->next->nbr)
-            return false;
-        current = current->next;
-    }
-
-    return true;
+	if (!stack)
+		return (true);
+	current = stack;
+	while (current)
+	{
+		if (current->nbr > current->next->nbr)
+			return (false);
+		current = current->next;
+	}
+	return (true);
 }
 
 int	ft_stack_size(t_stack_n *stack)

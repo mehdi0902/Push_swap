@@ -6,7 +6,7 @@
 /*   By: mben-abd <mben-abd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 22:03:19 by mben-abd          #+#    #+#             */
-/*   Updated: 2023/12/16 04:14:27 by mben-abd         ###   ########.fr       */
+/*   Updated: 2023/12/22 20:23:53 by mben-abd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	aim_for_a(t_stack_n *a, t_stack_n *b)
 			b->target_n = node_target;
 		b = b->next;
 	}
-	
 }
 
 void	init_b_to_a(t_stack_n *a, t_stack_n *b)
