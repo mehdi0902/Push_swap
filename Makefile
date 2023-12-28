@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -std=c99
+CFLAGS = -Wall -Wextra -Werror
 LIBS = libft2/libft.a
 
 SRC_DIR_ALGO = algo
