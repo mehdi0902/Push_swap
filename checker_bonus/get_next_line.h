@@ -6,7 +6,7 @@
 /*   By: mben-abd <mben-abd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 20:49:27 by mben-abd          #+#    #+#             */
-/*   Updated: 2023/11/15 20:35:08 by mben-abd         ###   ########.fr       */
+/*   Updated: 2024/02/07 18:45:29 by mben-abd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,20 @@
 #  define BUFFER_SIZE 5
 # endif
 
-typedef struct s_list1
+typedef struct s_liste
 {
 	char			*content;
-	struct s_list1	*next;
-}					t_list;
+	struct s_liste	*next;
+}					t_liste;
 
 char				*get_next_line(int fd);
-int					found_newline(t_list *stash);
-t_list				*ft_lst_get_last(t_list *stash);
-void				read_and_stash(int fd, t_list **stash);
-void				add_to_stash(t_list **stash, char *buf, int readed);
-void				extract_line(t_list *stash, char **line);
-void				generate_line(char **line, t_list *stash);
-void				clean_stash(t_list **stash);
-int					ft_strlen1(const char *str);
-void				free_stash(t_list *stash);
+int					found_newline(t_liste *stash);
+t_liste				*ft_lst_get_last(t_liste *stash);
+void				read_and_stash(int fd, t_liste **stash);
+void				add_to_stash(t_liste **stash, char *buf, int readed);
+void				extract_line(t_liste *stash, char **line);
+void				generate_line(char **line, t_liste *stash);
+void				clean_stash(t_liste **stash);
+int					ft_strlen(const char *str);
+void				free_stash(t_liste *stash);
 #endif

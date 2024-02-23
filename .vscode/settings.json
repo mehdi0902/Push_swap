@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "push_swap1.h": "c",
-        "algorithm": "c"
+        "algorithm": "c",
+        "iterator": "c"
     }
 }

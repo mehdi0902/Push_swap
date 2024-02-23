@@ -6,7 +6,7 @@
 /*   By: mben-abd <mben-abd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 18:22:20 by mben-abd          #+#    #+#             */
-/*   Updated: 2023/11/15 20:30:05 by mben-abd         ###   ########.fr       */
+/*   Updated: 2024/02/07 18:44:02 by mben-abd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*get_next_line(int fd)
 {
-	static t_list	*stash = NULL;
+	static t_liste	*stash = NULL;
 	char			*line;
 
 	if (fd < 0 || BUFFER_SIZE < 0 || read(fd, &line, 0) > 0)
@@ -38,7 +38,7 @@ char	*get_next_line(int fd)
 /* on utilise read dans read_and_stash pour ajouter
  *  les characteres/bytes du buff dans le stash --->*/
 
-void	read_and_stash(int fd, t_list **stash)
+void	read_and_stash(int fd, t_liste **stash)
 {
 	char	*buf;
 	int		readed;
@@ -67,13 +67,13 @@ void	read_and_stash(int fd, t_list **stash)
 /* La fonction en bas la elle va ajouter 
  * le contenu du buffer a la fin de notre stash*/
 
-void	add_to_stash(t_list **stash, char *buf, int readed)
+void	add_to_stash(t_liste **stash, char *buf, int readed)
 {
 	int		i;
-	t_list	*last;
-	t_list	*new_node;
+	t_liste	*last;
+	t_liste	*new_node;
 
-	new_node = malloc(sizeof(t_list));
+	new_node = malloc(sizeof(t_liste));
 	if (new_node == NULL)
 		return ;
 	new_node->next = NULL;
@@ -99,7 +99,7 @@ void	add_to_stash(t_list **stash, char *buf, int readed)
 // cette fonction va prendre touts les charactere de la stash 
 // et va les stocker en dehors de la ligne
 
-void	extract_line(t_list *stash, char **line)
+void	extract_line(t_liste *stash, char **line)
 {
 	int	i;
 	int	j;
@@ -131,14 +131,14 @@ void	extract_line(t_list *stash, char **line)
 	on a plus besoins des charactere ducoup la fonction va liberer la stash
 pour que les charactere non retourné dans GNL reste dans notre static stash */
 
-void	clean_stash(t_list **stash)
+void	clean_stash(t_liste **stash)
 {
-	t_list	*last;
-	t_list	*clean_node;
+	t_liste	*last;
+	t_liste	*clean_node;
 	int		i;
 	int		j;
 
-	clean_node = malloc(sizeof(t_list));
+	clean_node = malloc(sizeof(t_liste));
 	if (stash == NULL || clean_node == NULL)
 		return ;
 	clean_node->next = NULL;
@@ -149,7 +149,7 @@ void	clean_stash(t_list **stash)
 	if (last->content && last->content[i] == '\n')
 		i++;
 	clean_node->content = malloc
-		(sizeof(char) * ((ft_strlen1(last->content) - i) + 1));
+		(sizeof(char) * ((ft_strlen(last->content) - i) + 1));
 	if (clean_node->content == NULL)
 		return ;
 	j = 0;

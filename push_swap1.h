@@ -6,13 +6,14 @@
 /*   By: mben-abd <mben-abd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 19:08:33 by mben-abd          #+#    #+#             */
-/*   Updated: 2023/12/26 23:49:46 by mben-abd         ###   ########.fr       */
+/*   Updated: 2024/02/23 19:40:14 by mben-abd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP1_H
 # define PUSH_SWAP1_H
 
+# include "checker_bonus/get_next_line.h"
 # include "libft2/ft_printf/ft_printf.h"
 # include "libft2/libft.h"
 # include <limits.h>
@@ -66,15 +67,15 @@ int						synthol(char *str_n);
 //
 // les operations -->
 //
-void					rr(t_stack_n **a, t_stack_n **b);
+void					rr(t_stack_n **a, t_stack_n **b, int i);
 void					ra_rb(t_stack_n **a, int i);
 // void					pa_pb(t_stack_n **a, t_stack_n **b, int i);
 void					pb(t_stack_n **a, t_stack_n **b, int i);
 void					pa(t_stack_n **a, t_stack_n **b, int i);
-void					ss(t_stack_n **a, t_stack_n **b);
+void					ss(t_stack_n **a, t_stack_n **b, int i);
 void					sa_sb(t_stack_n **a, int i);
 void					rra_rrb(t_stack_n **a, int i);
-void					rrr(t_stack_n **a, t_stack_n **b);
+void					rrr(t_stack_n **a, t_stack_n **b, int i);
 void					stake(t_stack_n **a);
 void					ft_putstr_fd(char *s, int fd);
 void					if_three(t_stack_n **a);
@@ -84,5 +85,22 @@ void					if_three(t_stack_n **a);
 // void	rrr(t_stack_n **a, t_stack_n **b, bool print);
 // void	rrb(t_stack_n **b, bool print);
 // void	rra(t_stack_n **a, bool print);
+//
+//
+// BONUS ----->
+void					stake2(t_stack_n *stack);
+int						do_commands(char *line, t_stack_n **stack_a,
+							t_stack_n **stack_b);
+int						do_commands2(char *line, t_stack_n **stack_a,
+							t_stack_n **stack_b);
+void					get_instructions(t_stack_n **stack_a,
+							t_stack_n **stack_b);
+int						is_sorted_and_empty(t_stack_n **stack_a,
+							t_stack_n **stack_b);
 
+t_stack_n				*init_stack_from_args(int argc, char **argv);
+void					error_bonus(t_stack_n **a, char **av);
+int						has_duplicates(t_stack_n *head);
+char					**process_single_arg(int *argc, char **argv);
+t_stack_n				*create_new_node(char *value);
 #endif

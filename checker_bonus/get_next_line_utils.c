@@ -6,7 +6,7 @@
 /*   By: mben-abd <mben-abd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 20:57:23 by mben-abd          #+#    #+#             */
-/*   Updated: 2023/11/17 18:09:33 by mben-abd         ###   ########.fr       */
+/*   Updated: 2024/02/07 18:43:56 by mben-abd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 // la fonction found_newline va chercher 
 // une nouvelle ligne dans la chainé en parametre
 
-int	found_newline(t_list *stash)
+int	found_newline(t_liste *stash)
 {
 	int		i;
-	t_list	*actu;
+	t_liste	*actu;
 
 	if (stash == NULL)
 		return (0);
@@ -36,9 +36,9 @@ int	found_newline(t_list *stash)
 // cette fonction renvoie un pointeur vers 
 // le dernier bout selectionné de notre stash
 
-t_list	*ft_lst_get_last(t_list *stash)
+t_liste	*ft_lst_get_last(t_liste *stash)
 {
-	t_list	*actu;
+	t_liste	*actu;
 
 	actu = stash;
 	while (actu && actu->next)
@@ -48,7 +48,7 @@ t_list	*ft_lst_get_last(t_list *stash)
 
 // la fonction va calculer le nombre de char dans la ligne actuelle
 
-void	generate_line(char **line, t_list *stash)
+void	generate_line(char **line, t_liste *stash)
 {
 	int	i;
 	int	len;
@@ -74,10 +74,10 @@ void	generate_line(char **line, t_list *stash)
 
 // fonction pour free la stash
 
-void	free_stash(t_list *stash)
+void	free_stash(t_liste *stash)
 {
-	t_list	*actu;
-	t_list	*next;
+	t_liste	*actu;
+	t_liste	*next;
 
 	actu = stash;
 	while (actu)
@@ -89,7 +89,7 @@ void	free_stash(t_list *stash)
 	}
 }
 
-int	ft_strlen1(const char *str)
+int	ft_strlen(const char *str)
 {
 	int	len;
 

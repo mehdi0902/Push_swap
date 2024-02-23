@@ -6,7 +6,7 @@
 /*   By: mben-abd <mben-abd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 02:57:57 by mben-abd          #+#    #+#             */
-/*   Updated: 2023/12/26 23:54:00 by mben-abd         ###   ########.fr       */
+/*   Updated: 2024/02/23 19:44:56 by mben-abd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,21 @@ void	rra_rrb(t_stack_n **a, int i)
 	}
 }
 
-void	rrr(t_stack_n **a, t_stack_n **b)
+void	rrr(t_stack_n **a, t_stack_n **b, int i)
 {
 	rra_rrb(a, 3);
 	rra_rrb(b, 3);
-	ft_putstr_fd("rrr\n", 1);
+	if (i == 3)
+		ft_putstr_fd("rrr\n", 1);
+}
+
+void	stake2(t_stack_n *stack)
+{
+	while (stack != NULL)
+	{
+		printf("%d\n", stack->nbr);
+		stack = stack->next;
+	}
 }
 
 void	stake(t_stack_n **a)
@@ -57,9 +67,10 @@ void	stake(t_stack_n **a)
 	}
 }
 
-void	rr(t_stack_n **a, t_stack_n **b)
+void	rr(t_stack_n **a, t_stack_n **b, int i)
 {
 	ra_rb(a, 3);
 	ra_rb(b, 3);
-	ft_putstr_fd("rr\n", 1);
+	if (i == 3)
+		ft_putstr_fd("rr\n", 1);
 }

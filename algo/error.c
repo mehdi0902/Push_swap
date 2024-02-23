@@ -6,7 +6,7 @@
 /*   By: mben-abd <mben-abd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 20:52:12 by mben-abd          #+#    #+#             */
-/*   Updated: 2023/12/26 23:59:54 by mben-abd         ###   ########.fr       */
+/*   Updated: 2024/02/17 21:44:37 by mben-abd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,6 @@ void	free_sa_la(t_stack_n **stack)
 int	synthol(char *str_n)
 {
 	if (!(*str_n == '+' || *str_n == '-' || (*str_n >= '0' && *str_n <= '9')))
-		return (1);
-	if ((*str_n == '+' || *str_n == '-') && !(str_n[1] >= '0'
-			&& str_n[1] <= '9'))
 		return (1);
 	while (*++str_n)
 	{

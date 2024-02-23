@@ -1,16 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_checker.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mben-abd <mben-abd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/27 12:03:43 by mben-abd          #+#    #+#             */
-/*   Updated: 2024/02/23 19:43:26 by mben-abd         ###   ########.fr       */
+/*   Created: 2024/02/07 19:06:10 by mben-abd          #+#    #+#             */
+/*   Updated: 2024/02/23 19:49:49 by mben-abd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap1.h"
+
+void	print_double_char_array(char **arr)
+{
+	int	i;
+
+	i = 0;
+	while (arr[i] != NULL)
+	{
+		printf("%s\n", arr[i]);
+		i++;
+	}
+}
 
 char	**rebuild_argv(char **argv, int *argc)
 {
@@ -43,29 +55,24 @@ char	**process_single_arg(int *argc, char **argv)
 	return (argv);
 }
 
-int	main(int ac, char **av)
+int	main(int argc, char **argv)
 {
-	t_stack_n	*a;
-	t_stack_n	*b;
+	t_stack_n	*stack_a;
+	t_stack_n	*stack_b;
 
-	a = NULL;
-	b = NULL;
-	if (ac == 1 || (ac == 2 && !av[1][0]))
+	stack_a = NULL;
+	stack_b = NULL;
+	if (argc < 2)
 		return (1);
-	else if (ac == 2)
-	{
-		av = process_single_arg(&ac, av);
-	}
-	init_stack_a(&a, av + 1);
-	if (!stack_sorted(a))
-	{
-		if (ft_stack_size(a) == 2)
-			sa_sb(&a, 0);
-		else if (ft_stack_size(a) == 3)
-			if_three(&a);
-		else
-			turk(&a, &b);
-	}
-	free_sa_la(&a);
+	argv = process_single_arg(&argc, argv);
+	stack_a = init_stack_from_args(argc, argv);
+	error_bonus(&stack_a, argv);
+	get_instructions(&stack_a, &stack_b);
+	if (is_sorted_and_empty(&stack_a, &stack_b))
+		ft_putendl_fd("OK", 1);
+	else
+		ft_putendl_fd("KO", 1);
+	free_sa_la(&stack_a);
+	free_sa_la(&stack_b);
 	return (0);
 }

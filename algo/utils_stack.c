@@ -6,7 +6,7 @@
 /*   By: mben-abd <mben-abd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 23:33:36 by mben-abd          #+#    #+#             */
-/*   Updated: 2023/12/26 23:54:49 by mben-abd         ###   ########.fr       */
+/*   Updated: 2024/01/26 20:11:48 by mben-abd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,13 @@ t_stack_n	*find_last(t_stack_n *stack)
 
 bool	stack_sorted(t_stack_n *stack)
 {
-	t_stack_n	*current;
-
 	if (!stack)
-		return (true);
-	current = stack;
-	while (current)
+		return (1);
+	while (stack->next)
 	{
-		if (current->nbr > current->next->nbr)
+		if (stack->nbr > stack->next->nbr)
 			return (false);
-		current = current->next;
+		stack = stack->next;
 	}
 	return (true);
 }

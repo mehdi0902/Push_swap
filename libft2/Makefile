@@ -42,8 +42,13 @@ SRCS_BONUS	= ft_lstadd_back.c \
 			  ft_lstnew.c \
 			  ft_lstsize.c \
 
+SRCS_GET_NEXT_LINE = get_next_line.c \
+			  		 get_next_line_utils.c
+
 OBJS		= ${SRCS:.c=.o}
 OBJS_BONUS	= ${SRCS_BONUS:.c=.o}
+OBJS_GNL	= ${SRCS_GET_NEXT_LINE:.c=.o}
+
 NAME		= libft.a
 CC			= gcc -Wall -Wextra -Werror
 
@@ -58,8 +63,12 @@ $(NAME):	${OBJS} libft.h
 bonus:		${OBJS_BONUS} libft.h
 			ar rcs ${NAME} ${OBJS_BONUS}
 
+gnl:		$(OBJS) $(OBJS_GNL)
+			ar rcs $(NAME) $(OBJS) $(OBJS_GNL)
+
+
 clean:
-			rm -f ${OBJS} ${OBJS_BONUS}
+			rm -f ${OBJS} ${OBJS_BONUS} $(OBJS_GNL)
 
 fclean:		clean
 			rm -f ${NAME}

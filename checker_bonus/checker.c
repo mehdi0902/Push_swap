@@ -6,135 +6,61 @@
 /*   By: mben-abd <mben-abd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 01:13:03 by mben-abd          #+#    #+#             */
-/*   Updated: 2023/12/28 16:11:56 by mben-abd         ###   ########.fr       */
+/*   Updated: 2024/02/23 19:43:14 by mben-abd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include "../push_swap1.h"
+#include "../push_swap1.h"
 
 int	do_commands(char *line, t_stack_n **stack_a, t_stack_n **stack_b)
 {
-	if (!(ft_strcmp(line, "sa")))
+	if (!(ft_strncmp(line, "sa\n", 3)))
+		sa_sb(stack_a, 15);
+	else if (!(ft_strncmp(line, "sb\n", 3)))
+		sa_sb(stack_b, 14);
+	else if (!(ft_strncmp(line, "ss\n", 3)))
+		ss(stack_a, stack_b, 78);
+	else if (!(ft_strncmp(line, "pa\n", 3)))
+		pa(stack_a, stack_b, 35);
+	else if (!(ft_strncmp(line, "pb\n", 3)))
+		pb(stack_a, stack_b, 73);
+	else if (!(ft_strncmp(line, "ra\n", 3)))
+		ra_rb(stack_a, 773);
+	else if (!(ft_strncmp(line, "rb\n", 3)))
+		ra_rb(stack_b, 178);
+	else if (!(ft_strncmp(line, "rr\n", 3)))
+		rr(stack_a, stack_b, 48);
+	else
+		do_commands2(line, stack_a, stack_b);
+	return (0);
+}
+
+int	do_commands2(char *line, t_stack_n **stack_a, t_stack_n **stack_b)
+{
+	if (!(ft_strncmp(line, "rra\n", 4)))
+		rra_rrb(stack_a, 34);
+	else if (!(ft_strncmp(line, "rrb\n", 4)))
+		rra_rrb(stack_b, 39);
+	else if (!(ft_strncmp(line, "rrr\n", 4)))
+		rrr(stack_a, stack_b, 58);
+	else
 	{
-		swap(stack_a);
-		return (0);
-	}
-	if (!(ft_strcmp(line, "sb")))
-	{
-		swap(stack_b);
-		return (0);
-	}
-	if (!(ft_strcmp(line, "ss")))
-	{
-		swap(stack_a);
-		swap(stack_b);
-		return (0);
-	}
-	if (!(ft_strcmp(line, "pa")))
-	{
-		push(stack_a, stack_b);
-		return (0);
-	}
-	if (!(ft_strcmp(line, "pb")))
-	{
-		push(stack_b, stack_a);
-		return (0);
-	}
-	if (!(ft_strcmp(line, "ra")))
-	{
-		rotate(stack_a);
-		return (0);
-	}
-	if (!(ft_strcmp(line, "rb")))
-	{
-		rotate(stack_b);
-		return (0);
-	}
-	if (!(ft_strcmp(line, "rr")))
-	{
-		rotate(stack_a);
-		rotate(stack_b);
-		return (0);
-	}
-	if (!(ft_strcmp(line, "rra")))
-	{
-		reverseRotate(stack_a);
-		return (0);
-	}
-	if (!(ft_strcmp(line, "rrb")))
-	{
-		reverseRotate(stack_b);
-		return (0);
-	}	
-	if (!(ft_strcmp(line, "rrr")))
-	{
-		reverseRotate(stack_a);
-		reverseRotate(stack_b);
-		return (0);
+		ft_putstr_fd("Error\n", 1);
+		exit(1);
 	}
 	return (1);
 }
 
-void	print_checker_res(t_list **stack_a, t_list **stack_b)
+void	get_instructions(t_stack_n **stack_a, t_stack_n **stack_b)
 {
-	if (is_sorted(stack_a))
-		ft_putendl_fd("OK\n", 1);
-	else
-		ft_putendl_fd("KO\n", 1);
-	if (*stack_a)
-		free_stack(stack_a);
-	if (*stack_b)
-		free_stack(stack_b);
+	char	*instruction;
+
+	instruction = get_next_line(0);
+	while (instruction)
+	{
+		do_commands(instruction, stack_a, stack_b);
+		free(instruction);
+		instruction = get_next_line(0);
+	}
+	free(instruction);
 }
-
-static void	initStack(t_list **stack, int argc, char **argv)
-{
-	t_list	*new;
-	char	**args;
-	int		i;
-
-	i = 0;
-	if (argc == 2)
-		args = ft_split(argv[1], ' ');
-	else
-	{
-		i = 1;
-		args = argv;
-	}
-	while (args[i])
-	{
-		new = ft_lstnew(ft_atoi(args[i]));
-		ft_lstadd_back(stack, new);
-		i++;
-	}
-	index_stack(stack);
-	if (argc == 2)
-		ft_free(args);
-}
-
-int	main(int argc, char **argv)
-{
-	t_list	**stack_a;
-	t_list	**stack_b;
-	char	*line;
-
-	if (argc < 2)
-		return (0);
-	stack_a = (t_list **)malloc(sizeof(t_list));
-	stack_b = (t_list **)malloc(sizeof(t_list));
-	*stack_a = NULL;
-	*stack_b = NULL;
-	ft_check_args(argc, argv);
-	initStack(stack_a, argc, argv);
-	while (get_next_line(0, &line))
-	{
-		if (do_commands(line, stack_a, stack_b))
-		{
-			ft_error("Error");
-			return (-1);
-		}
-		free(line);
-	}
-	print_checker_res(stack_a, stack_b);
-	return (0);
-}*/

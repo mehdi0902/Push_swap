@@ -6,18 +6,18 @@
 /*   By: mben-abd <mben-abd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 14:41:24 by mben-abd          #+#    #+#             */
-/*   Updated: 2023/11/28 11:18:11 by mben-abd         ###   ########.fr       */
+/*   Updated: 2024/02/22 00:00:51 by mben-abd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include "ft_printf/ft_printf.h"
-# include "get_next_line/get_next_line.h"
 # include <stdlib.h>
 # include <unistd.h>
 
-int					ft_atoi(const char *str);
+long				ft_atoi(const char *str);
+int					ft_atoi_safe(const char *str, int *res);
 void				ft_bzero(void *s, size_t n);
 void				*ft_calloc(size_t count, size_t size);
 int					ft_isalnum(int i);
@@ -52,7 +52,6 @@ void				ft_putendl_fd(char *s, int fd);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
-
 typedef struct s_list
 {
 	void			*content;

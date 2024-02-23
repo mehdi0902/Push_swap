@@ -6,7 +6,7 @@
 /*   By: mben-abd <mben-abd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 13:53:07 by mben-abd          #+#    #+#             */
-/*   Updated: 2023/12/26 23:55:29 by mben-abd         ###   ########.fr       */
+/*   Updated: 2024/02/23 18:05:13 by mben-abd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	turk(t_stack_n **a, t_stack_n **b)
 void	rotate_a_and_b(t_stack_n **a, t_stack_n **b, t_stack_n *cheap)
 {
 	while (*b != cheap->target_n && *a != cheap)
-		rr(a, b);
+		rr(a, b, 3);
 	mid_index(*a);
 	mid_index(*b);
 }
@@ -51,7 +51,7 @@ void	rotate_a_and_b(t_stack_n **a, t_stack_n **b, t_stack_n *cheap)
 void	rev_rotate_a_and_b(t_stack_n **a, t_stack_n **b, t_stack_n *cheap)
 {
 	while (*b != cheap->target_n && *a != cheap)
-		rrr(a, b);
+		rrr(a, b, 3);
 	mid_index(*a);
 	mid_index(*b);
 }
